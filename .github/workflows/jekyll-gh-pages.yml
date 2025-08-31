@@ -5,12 +5,8 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-    pull_request_target:
-    types: labeled
-    paths: - 'images/ubuntu/**'
-  defaults:
-    run:
-    shell: pwsh
+
+  
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,18 +27,9 @@ jobs:
       - name: Ubuntu_2404
       - if: github.event.label.name == 'CI ubuntu-all' || github.event.label.name == 'CI ubuntu-2404'
         uses: ./.github/workflows/trigger-ubuntu-win-build.yml
-        with:
-        image_type: 'ubuntu2404'
-        secrets: nekrvn5E@
+       
 
-     
-  # Deployment job
-  deploy:
-    environment:
-    
 
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        
+        
+
