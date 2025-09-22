@@ -20,7 +20,7 @@ jobs:
           SERVER_IP: ${{ secrets.SERVER_IP }}
           APP_DIR: ${{ secrets.APP_DIR }}
         run: |
-          ssh -o -i leosmitt@$SERVER_IP "
+          ssh -i $SERVER_USER@$SERVER_IP "
           cd $APP_DIR &&
           git remote set-url origin git@github.com:yourgithubuser/yourgithubrepo.git &&  # Dont forget to change this!!!
           git pull origin main &&
